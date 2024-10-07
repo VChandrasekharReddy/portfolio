@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen with Two Divs</title>
+    <style>
+        /* Full page styling for the splash screen */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Splash Screen Container */
+        .splash-screen {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 100vh; /* Full viewport height */
+            width: 100vw; /* Full viewport width */
+        }
+
+        /* Left section (50% width) */
+        .left-section {
+            width: 0%;
+            background-color: #757975; /* Blue color for left div */
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            animation: fadeIn 1s ease forwards , outeranimation 1s 1.5s  ease forwards;
+        }
+
+        /* Right section (50% width) */
+        .right-section {
+            width: 0%;
+            background-color: #757975; /* Green color for right div */
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            animation: fadeIn 1s ease forwards , outeranimation 1s 1.5s  ease forwards;
+        }
+        .rightcircle, .leftcircle{
+            height: 200px;
+            width: 100px;
+            background-color: white;
+        }
+        .rightcircle{
+            border-top-right-radius: 200px;
+            border-bottom-right-radius: 200px;
+        }
+        .leftcircle{
+            border-top-left-radius: 200px;
+            border-bottom-left-radius: 200px;
+        }
+
+        .vlogodiv{
+            position: absolute;
+            z-index: 2;
+            height: 200px ;
+            background-color: white;
+            width: 200px;
+            opacity: 0;
+            border-radius: 200px;
+            background-image: url(/images/vlogo.png);
+            background-position: center;
+            background-size: cover;
+            align-self: center;
+            justify-self: center;
+            box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+            animation: vlogo 0.5s 0.5s ease  forwards , outeranimation 1s 1.5s  ease forwards;
+        }
+        @keyframes outeranimation {
+            0% {
+                transform: translateY(0px);
+            }
+            10%{
+                transform: translateY(10px);
+            }
+            25%{
+                transform: translateY(-10px);
+            }
+            50%{
+                transform: translateY(20px);
+            }
+            100%{
+                transform: translateY(-1235px);
+            }
+        }
+        
+        @keyframes vlogo{
+            from {
+                opacity: 0;
+                
+                transform: scale(0)  rotateY(0deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotateY(360deg);
+            }
+        }
+
+        /* Add fade-out animation */
+        @keyframes fadeIn {
+            form{
+                width: 0%;
+                opacity: 0;
+            }
+            to {
+                width: 50%;
+                opacity: 1;
+            }
+        }
+
+
+
+
+        /* Add fade-out animation */
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Hide splash screen after the animation */
+        .hide-splash {
+            animation: fadeOut 1s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="vlogodiv">
+
+    </div>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <!-- First div -->
+        <div class="left-section">
+            <div class="leftcircle"></div>
+            
+        </div>
+
+        <!-- Second div -->
+        <div class="right-section">
+            <div class="rightcircle"></div>
+        </div>
+    </div>
+
+    <script>
+        // Fade out the splash screen after 2 seconds
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.splash-screen').classList.add('hide-splash');
+            }, 1500); // 2 seconds delay before fading out
+        });
+    </script>
+
+</body>
+</html>

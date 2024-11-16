@@ -1,3 +1,11 @@
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        document.querySelector('.splash-screen').classList.add('hide-splash');
+        document.querySelector('.splashmain').classList.add('hide-splash');
+    }, 2000); // 2 seconds delay before fading out
+});
+
+
 let imagearray = [
         '/images/bg6.jpg',
         '/images/bg3.png',
@@ -45,7 +53,7 @@ let imagearray = [
 
     let a= "hi I’m";
     b="Chandrasekhar Reddy Vallapureddy";
-    c="Full Stack Devaloper";
+    c="Full Stack Developer";
     d="I’m a recent B.Tech graduate in Computer Science and Engineering with skills in Python, C++, Java, and web development. I'm eager to start my career and continue learning, especially in full-stack Java development. I’m excited to contribute to a team and grow in my career.";
     let pr1 = 5;
     let pr2= 10;
@@ -551,14 +559,19 @@ let imagearray = [
     p4++
     if(p4>pr4)clearInterval(ppp4);
     }
-    let ppp1 = setInterval(pp1,50);
-    let ppp2 = setInterval(pp2,50);
-    let ppp3 = setInterval(pp3,50);
-    let ppp4 = setInterval(pp4,50);
+setTimeout(function(){
+
+
     let st2 = setInterval(forn2,100)
     let st1 = setInterval(forn1,100);
     let st3 = setInterval(forn3,100);
     let st4 = setInterval(forn4,10); 
+},2500)
+
+let ppp1 = setInterval(pp1,50);
+let ppp2 = setInterval(pp2,50);
+let ppp3 = setInterval(pp3,50);
+let ppp4 = setInterval(pp4,50);
 
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -584,5 +597,65 @@ let imagearray = [
         // Observe each element
         animatedElements.forEach(element => observer.observe(element));
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Define the media query
+const mediaQuery = window.matchMedia('(max-width: 481px)');
+
+// Function to apply styles based on media query match
+function applyStyles(e) {
+  if (e.matches) {
+    // If the media query matches (screen width is >= 481px), apply the styles
+    let st2 = setInterval(forn2,100)
+    let st1 = setInterval(forn1,100);
+    let st3 = setInterval(forn3,100);
+    let st4 = setInterval(forn4,10); 
+    // You can add more styles here
+  } else {
+    // Revert to original styles if the media query does not match
+    setTimeout(function(){
+
+
+        let st2 = setInterval(forn2,100)
+        let st1 = setInterval(forn1,100);
+        let st3 = setInterval(forn3,100);
+        let st4 = setInterval(forn4,10); 
+    },2500)
+  }
+}
+
+// Listen for changes in the media query status
+mediaQuery.addListener(applyStyles);
+
+// Initial check for when the page loads
+applyStyles(mediaQuery);
 
 
